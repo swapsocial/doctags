@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
+  <title>Doctags Generator</title>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="Swapnilsocial">
+<link rel="stylesheet" href="{{ url_for('static',filename='formats.css')}}">
+<link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+<style>
+body, html {
+  height: 100%;
+  font-family: 'Josefin Sans', sans-serif;
+  overflow-x: hidden;
+}
+
+.bgimg {
+  background-position: center;
+  background-size: cover;
+  background-image: url("static/logo.png");
+  min-height: 75%;
+}
+
+.menu {
+  display: none;
+}
+</style>
+</head>
+<body>
+<header class="bgimg w3-display-container w3-grayscale-min" id="home">
+  <div>
+    <span class="w3-text-red" style="font-size:90px"><br></span>
+
+<h1 align="center">Upload files</h1>
+
+    <form  method=post enctype=multipart/form-data>
+        <p align="Center"></p>
+      <input type=file name=file multiple>
+      <input type=submit value=Upload> </p>
+    </form>
+<div></div><br></br><br></br>
+{%- if files %}
+  <h3>Files uploaded successfully so far</h3>
+
+  <ul>
+  {%- for code, file in files.items() %}
+      <li><a href="http://localhost:5601/app/kibana#/dashboard/36641b20-a86b-11ec-b684-051a221e889d?_g=(filters:!())&_a=(description:'',filters:!(('$state':(store:appState),meta:(alias:!n,disabled:!f,index:eb4745d0-a866-11ec-b684-051a221e889d,key:filename.keyword,negate:!f,params:(query:{{ file }},type:phrase),type:phrase,value:{{ file }}),query:(match:(filename.keyword:(query:{{ file }},type:phrase))))),fullScreenMode:!f,options:(darkTheme:!f,hidePanelTitles:!f,useMargins:!t),panels:!((embeddableConfig:(),gridData:(h:30,i:'1',w:33,x:0,y:0),id:d5e1e860-a868-11ec-b684-051a221e889d,panelIndex:'1',type:visualization,version:'6.8.23'),(embeddableConfig:(),gridData:(h:18,i:'2',w:15,x:33,y:12),id:'2c610130-a869-11ec-b684-051a221e889d',panelIndex:'2',type:visualization,version:'6.8.23'),(embeddableConfig:(vis:(legendOpen:!t)),gridData:(h:12,i:'4',w:15,x:33,y:0),id:ba5fb670-a869-11ec-b684-051a221e889d,panelIndex:'4',type:visualization,version:'6.8.23')),query:(language:kuery,query:''),timeRestore:!f,title:'Doctags%20Analyser',viewMode:view)">{{ file }}</a></li>
+  {% endfor %}
+  </ul>
+{% endif %}
+    <br></br>
+<li><a href="http://localhost:5601/app/kibana#/dashboard/36641b20-a86b-11ec-b684-051a221e889d?_g=(filters:!())&_a=(description:'',filters:!(),fullScreenMode:!f,options:(darkTheme:!f,hidePanelTitles:!f,useMargins:!t),panels:!((embeddableConfig:(),gridData:(h:30,i:'1',w:33,x:0,y:0),id:d5e1e860-a868-11ec-b684-051a221e889d,panelIndex:'1',type:visualization,version:'6.8.23'),(embeddableConfig:(),gridData:(h:18,i:'2',w:15,x:33,y:12),id:'2c610130-a869-11ec-b684-051a221e889d',panelIndex:'2',type:visualization,version:'6.8.23'),(embeddableConfig:(vis:(legendOpen:!t)),gridData:(h:12,i:'4',w:15,x:33,y:0),id:ba5fb670-a869-11ec-b684-051a221e889d,panelIndex:'4',type:visualization,version:'6.8.23')),query:(language:kuery,query:''),timeRestore:!f,title:'Doctags%20Analyser',viewMode:view)">Tags from all documents</a></li>
+  </div>
+  <div class="w3-display-bottommiddle w3-center">
+  </div>
+</header>
+<!-- End page content -->
+</div>
+
+<!-- Footer -->
+
+</div>
+   <footer class="footer footer-default" id="aboutus" >
+        <div class="container">
+            <div class="copyright w3-center">
+  <p align="center">Author: Swapnil Joshi<br>
+  <a href="mailto:swapniljoshisj20@gmail.com">swapniljoshisj20@gmail.com</a><br>
+  <a href="https://github.com/swapnilsocial">swapnilsocial@github</a><br>
+  <a href="https://www.linkedin.com/in/swapnilsocial">swapnilsocial@linkedin</a></p>
+            </div>
+            <div class="row">
+                <div class="col-12 text-center">
+                    <div align="center" class="copyright w3-center" >
+                       Doctags v1.0.0
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
